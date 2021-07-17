@@ -1,0 +1,7 @@
+{
+ "default.route.alsa_card.pci-0000_2b_00.1:profile:off": [ ],
+ "default.route.alsa_card.usb-Focusrite_Scarlett_18i8_USB_00007246-00:profile:off": [ ],
+ "default.route.alsa_card.pci-0000_2d_00.4:profile:off": [ ],
+ "default.route.alsa_card.pci-0000_2b_00.1:profile:output:hdmi-stereo-extra1": [ ],
+ "default.route.alsa_card.usb-Focusrite_Scarlett_18i8_USB_00007246-00:profile:output:analog-surround-71+input:multichannel-input": [ ]
+}

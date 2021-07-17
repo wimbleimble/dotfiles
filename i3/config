@@ -137,6 +137,7 @@ bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
 bindsym $mod+m workspace $ws6
+bindsym $mod+numbersign workspace $ws5
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -150,28 +151,27 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+bindsym $mod+Shift+numbersign move container to workspace $ws5
+bindsym $mod+Shift+m move container to workspace $ws6
+
 # monitor management
 bindsym $mod+greater move workspace to output right
 bindsym $mod+less move workspace to output left
 
-# reload the configuration file
+# manage i3
 bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
 bindsym $mod+Shift+x exec i3-msg exit
 
 # resize window (you can also use the mouse for that)
-bindsym $mod+Control+$left resize shrink width 10 px or 10 ppt
-bindsym $mod+Control+$up resize grow height 10 px or 10 ppt
-bindsym $mod+Control+$down resize shrink height 10 px or 10 ppt
-bindsym $mod+Control+$right resize grow width 10 px or 10 ppt
+bindsym $mod+Control+$left resize shrink width 2 px or 2 ppt
+bindsym $mod+Control+$up resize grow height 2 px or 2 ppt
+bindsym $mod+Control+$down resize shrink height 2 px or 2 ppt
+bindsym $mod+Control+$right resize grow width 2 px or 2 ppt
 
 # debug bindings
 bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/refresh_polybar.sh
-# bindsym $mod+semicolon exec --no-startup-id ~/.config/i3/scripts/test_dunst.sh
+bindsym $mod+semicolon exec --no-startup-id ~/.config/i3/scripts/test_dunst.sh
 
 # printscreen screenshots!!!!!!!
 bindsym Print exec --no-startup-id ~/.config/i3/scripts/screenshot.sh -s

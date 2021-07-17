@@ -59,7 +59,9 @@ inherit = bar/base
 
 modules-left = i3
 modules-center = xwindow
-modules-right = eth alsa date
+modules-right = eth  date
+tray-position = right 
+tray-transparent = true
 
 cursor-click = pointer
 
@@ -69,8 +71,8 @@ modules-left = i3
 modules-center = 
 modules-right = cpu memory temperature
 
-tray-position = center 
-tray-transparent = true
+# tray-position = center 
+# tray-transparent = true
 
 [module/xwindow]
 type = internal/xwindow

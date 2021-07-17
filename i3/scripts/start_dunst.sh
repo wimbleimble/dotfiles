@@ -4,8 +4,8 @@ foreground=$(xgetres foreground)
 background=$(xgetres background)
 highlight=$(xgetres color5)
 lfr=$(xgetres color2)
-nfr=$(xgetres color6)
-cfr=$(xgetres color1)
+nfr=$(xgetres color13)
+cfr=$(xgetres color12)
 
 dunst	-lf "$foreground" \
 	-nf "$foreground" \

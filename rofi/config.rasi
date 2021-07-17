@@ -1,4 +1,4 @@
 configuration {
-	theme: "nord";
+	theme: "theme";
 }
 /* vim:ft=css

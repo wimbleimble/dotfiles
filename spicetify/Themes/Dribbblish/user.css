@@ -10,28 +10,28 @@
 
 @font-face {
     font-family: "Google Sans Display";
-    src: url("https://local_resource_host/fonts/GoogleSansDisplayRegular.woff2") format("woff2");
+    src: url("glue-resources/fonts/GoogleSansDisplayRegular.woff2") format("woff2");
     font-style: normal;
     font-weight: 400;
 }
 
 @font-face {
     font-family: "Google Sans Display";
-    src: url("https://local_resource_host/fonts/GoogleSansDisplayMedium.woff2") format("woff2");
+    src: url("glue-resources/fonts/GoogleSansDisplayMedium.woff2") format("woff2");
     font-style: normal;
     font-weight: 500;
 }
 
 @font-face {
     font-family: "Roboto";
-    src: url("https://local_resource_host/fonts/Roboto.woff2") format("woff2");
+    src: url("glue-resources/fonts/Roboto.woff2") format("woff2");
     font-style: normal;
     font-weight: 400;
 }
 
 @font-face {
     font-family: "Roboto";
-    src: url("https://local_resource_host/fonts/RobotoMedium.woff2") format("woff2");
+    src: url("glue-resources/fonts/RobotoMedium.woff2") format("woff2");
     font-style: normal;
     font-weight: 500;
 }
@@ -58,11 +58,11 @@ body {
 
 .lyrics-lyricsContainer-LyricsLine {
     font-family: var(--glue-font-family);
-    letter-spacing: normal !important;
+    letter-spacing: -.03em !important;
 }
 
-.main-rootlist-rootlistDividerGradient {
-    background: unset;
+.main-rootlist-rootlistDivider {
+    display: none;
 }
 
 input {
@@ -119,8 +119,11 @@ input {
     filter: grayscale(1);
 }
 
-span.artist-artistVerifiedBadge-badge svg:nth-child(1) {
-    fill: black;
+span.artist-artistVerifiedBadge-badge svg > path:first-of-type {
+    fill: var(--spice-button);
+}
+span.artist-artistVerifiedBadge-badge svg > path:last-of-type {
+    fill: var(--spice-text);
 }
 
 /* Full window artist background */
@@ -147,8 +150,8 @@ span.artist-artistVerifiedBadge-badge svg:nth-child(1) {
 }
 
 .artist-artistOverview-overview .main-entityHeader-withBackgroundImage h1 {
-    font-size: 175px !important;
-    line-height: 175px !important;
+    font-size: 120px !important;
+    line-height: 120px !important;
 }
 
 /** Hightlight selected playlist */
@@ -245,14 +248,10 @@ span.artist-artistVerifiedBadge-badge svg:nth-child(1) {
     color: rgba(var(--spice-rgb-sidebar-text), 0.8);
 }
 
-.main-avatar-avatar,
-.main-buddyFeed-overlay {
+.main-buddyFeed-buddyFeedRoot .main-avatar-avatar,
+.main-buddyFeed-buddyFeedRoot .main-buddyFeed-overlay {
     width: 32px !important;
     height: 32px !important;
-}
-
-.main-buddyFeed-avatarContainer {
-    padding-left: 4px;
 }
 
 .main-avatar-avatar.main-avatar-withBadge:after {
@@ -269,7 +268,7 @@ span.artist-artistVerifiedBadge-badge svg:nth-child(1) {
 .main-nowPlayingBar-container {
     border-radius: 0 0 var(--main-corner-radius) var(--main-corner-radius);
     background-color: unset;
-    background: radial-gradient(ellipse at right 50% bottom -80px, rgba(var(--spice-rgb-button), 0.55), var(--spice-main) 60%);
+    background: radial-gradient(ellipse at right 50% bottom -80px, rgba(var(--spice-rgb-sidebar), 0.55), var(--spice-main) 60%);
     border-top: 0;
     min-width: 518px;
 }
@@ -278,18 +277,7 @@ span.artist-artistVerifiedBadge-badge svg:nth-child(1) {
     border-radius: 0 0 var(--main-corner-radius) var(--main-corner-radius);
     border: 2px solid var(--spice-main);
     border-top: 0;
-}
-
-@media(max-width:768px){
-    /* .control-button{
-        display: none;
-    } */
-    .volume-bar {
-        flex: 0 1 40px;
-    }
-    .volume-bar .progress-bar-wrapper {
-        display: none;
-    }
+    color: var(--spice-sidebar-text);
 }
 
 .Root__nav-bar {
@@ -312,6 +300,11 @@ html,
     background-color: var(--spice-sidebar) !important;
 }
 
+html {
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .Root__nav-bar .link-subtle,
 .main-rootlist-rootlistItemLink:link,
 .main-rootlist-rootlistItemLink:visited,
@@ -329,6 +322,10 @@ html,
     padding: 0 8px;
 }
 
+#spicetify-show-list >* {
+    padding: 0 8px;
+}
+
 .main-rootlist-statusIcons {
     color: var(--spice-sidebar-text);
     padding-right: 16px;
@@ -341,7 +338,7 @@ html,
 .main-rootlist-expandArrow {
     position: absolute;
     top: 20px;
-    right: 4px;
+    right: 12px;
     width: 16px;
     height: 16px;
     color: var(--spice-sidebar-text) !important;
@@ -362,6 +359,10 @@ html:not(.sidebar-hide-text) .main-rootlist-expandArrow {
 .main-rootlist-expandArrow::before {
     font-size: 10px;
     padding-bottom: 3px;
+}
+
+html.sidebar-hide-text .main-rootlist-expandArrow {
+    right: 4px;
 }
 
 html.sidebar-hide-text .main-navBar-navBarItem span,
@@ -416,6 +417,7 @@ html.sidebar-hide-text .GlueDropTarget span {
 
 .player-controls__buttons {
     margin-bottom: 0;
+    width: 192px;
 }
 
 .progress-bar {
@@ -426,9 +428,20 @@ html.sidebar-hide-text .GlueDropTarget span {
 
 .minimal-player .player-controls__buttons {
     width: 120px;
+    gap: 0px;
 }
+
+.minimal-player .player-controls__left,
+.minimal-player .player-controls__right {
+    --button-size: 16px !important;
+    gap: 0px;
+}
+
 .minimal-player .volume-bar {
     flex: 0 1 70px;
+}
+.extra-minimal-player .player-controls__buttons {
+    width: 64px;
 }
 .extra-minimal-player .main-shuffleButton-button,
 .extra-minimal-player .main-repeatButton-button,
@@ -490,6 +503,7 @@ img.playlist-picture {
 .main-rootlist-rootlistItem {
     padding-left: calc(var(--indentation)*var(--left-sidebar-item-indentation-width));
     padding-right: 0;
+    transition: padding-left .5s ease;
 }
 
 html.sidebar-hide-text .main-rootlist-rootlistItem {
@@ -542,12 +556,12 @@ li.GlueDropTarget {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 20%;
+    height: 15%;
     background: linear-gradient(to top, var(--spice-sidebar) 10%, transparent);
     z-index: 3;
     pointer-events: none;
 }
-#dribs-playlist-list {
+.dribs-playlist-list {
     padding-bottom: 56px;
 }
 #dribbblish-back-shadow {
@@ -580,15 +594,11 @@ li.GlueDropTarget {
 }
 
 /** Rearrange player bar */
-.main-shuffleButton-button {
-    order: 1;
-}
-
 .main-nowPlayingBar-left {
     order: 1;
     flex: 1;
     width: auto;
-    min-width: unset !important;
+    min-width: 0 !important;
 }
 
 .main-nowPlayingBar-center {
@@ -625,13 +635,15 @@ li.GlueDropTarget {
 }
 
 /** Main container */
-.contentSpacing {
+.contentSpacing,
+.artist-artistDiscography-headerContainer {
     padding-left: 64px;
     padding-right: 64px;
 }
 
 @media (min-width: 1024px) {
-    .contentSpacing {
+    .contentSpacing,
+    .artist-artistDiscography-headerContainer {
         padding-left: 128px;
         padding-right: 128px;
     }
@@ -767,4 +779,81 @@ html.right-expanded-cover.buddyfeed-visible .main-coverSlotExpanded-container {
 
 .main-nowPlayingWidget-coverExpanded {
     transform: translateX(-27px);
+}
+
+/** Mini dribbblish */
+.x-categoryCard-CategoryCard > div {
+    background-color: var(--spice-main);
+    width: calc(100% - 14px);
+    height: calc(100% - 6px);
+    margin: 3px 10px;
+    border-radius: 5px;
+}
+
+.x-categoryCard-CategoryCard {
+    height: 100px;
+}
+
+.x-categoryCard-image {
+    width: 50px !important;
+    height: 50px !important;
+}
+
+.x-heroCategoryCard-HeroCategoryCard > div {
+    background-color: var(--spice-main);
+    width: calc(100% - 20px);
+    height: calc(100% - 6px);
+    margin: 3px 16px;
+    border-radius: 5px;
+}
+
+.main-dropDown-dropDown,
+.x-sortBox-sortDropdown {
+    background-color: rgba(var(--spice-rgb-selected-row), .1) !important;
+}
+
+.connect-device-list-item:focus,
+.connect-device-list-item:hover {
+    background-color: rgba(var(--spice-rgb-selected-row), .3);
+}
+
+.bookmark-filter {
+    color: var(--spice-main) !important;
+}
+
+/* 1.1.56 */
+.main-navBar-navBar {
+    width: var(--sidebar-width) !important;
+}
+
+.main-entityHeader-container.main-entityHeader-nonWrapped {
+    padding-left: 64px;
+    padding-right: 64px;
+}
+
+@media (min-width: 1024px) {
+    .main-entityHeader-container.main-entityHeader-nonWrapped {
+        padding-left: 128px;
+        padding-right: 128px;
+    }
+}
+
+.main-userWidget-dropDownMenu > li > button {
+    color: rgba(var(--spice-rgb-selected-row), .7);
+    padding-left: 8px;
+    text-decoration: none;
+}
+.main-userWidget-dropDownMenu > li > button:hover,
+.main-userWidget-dropDownMenu > li > button:focus {
+    color: var(--spice-text);
+}
+
+.main-userWidget-dropDownMenu svg {
+    position: unset;
+}
+.main-userWidget-dropDownMenu > li svg {
+    position: absolute;
+}
+.main-buddyFeed-buddyFeed.main-buddyFeed-buddyFeed-expanded {
+    z-index: 4;
 }

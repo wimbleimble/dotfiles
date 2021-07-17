@@ -7,15 +7,11 @@
 # 
 XDG_DOWNLOAD_DIR="$HOME/downloads"
 XDG_DOCUMENTS_DIR="$HOME/documents"
-XDG_AUDIO_DIR="$HOME/audio"
 XDG_VIDEOS_DIR="$HOME/videos"
 XDG_CODE_DIR="$HOME/code"
 XDG_BIN_DIR="$HOME/bin"
 XDG_MUSIC_DIR="$HOME/audio"
-XDG_PICTURES_DIR="$HOME/images"
-
-
-# unused. please fucking work. i hate xdg
-XDG_DESKTOP_DIR="$HOME/.xdgdirs/desktop"
+XDG_PICTURES_DIR="$HOME/pictures"
+XDG_DESKTOP_DIR="$HOME/"
 XDG_TEMPLATES_DIR="$HOME/.xdgdirs/templates"
 XDG_PUBLICSHARE_DIR="$HOME/.xdgdirs/public"
