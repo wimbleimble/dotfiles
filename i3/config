@@ -170,8 +170,8 @@ bindsym $mod+Control+$down resize shrink height 2 px or 2 ppt
 bindsym $mod+Control+$right resize grow width 2 px or 2 ppt
 
 # debug bindings
-bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/refresh_polybar.sh
-bindsym $mod+semicolon exec --no-startup-id ~/.config/i3/scripts/test_dunst.sh
+# bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/refresh_polybar.sh
+# bindsym $mod+semicolon exec --no-startup-id ~/.config/i3/scripts/test_dunst.sh
 
 # printscreen screenshots!!!!!!!
 bindsym Print exec --no-startup-id ~/.config/i3/scripts/screenshot.sh -s
