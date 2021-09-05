@@ -31,7 +31,7 @@ alert = ${xrdb:color2}
 monitor = ${env:MONITOR:}
 
 width = 100%
-height = 25 
+height = 30
 # radius = 6.0
 fixed-center = true 
 
@@ -39,7 +39,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3
-line-color = #f00
+line-color = ${colors.primary}
 
 # border-size = 4
 border-color = #00000000
@@ -58,10 +58,11 @@ font-2 = monospace;1
 inherit = bar/base
 
 modules-left = i3
-modules-center = xwindow
-modules-right = eth  date
-tray-position = right 
-tray-transparent = true
+modules-center = 
+modules-right = eth date
+tray-position = center 
+tray-detached = true
+
 
 cursor-click = pointer
 
@@ -70,9 +71,6 @@ inherit = bar/base
 modules-left = i3
 modules-center = 
 modules-right = cpu memory temperature
-
-# tray-position = center 
-# tray-transparent = true
 
 [module/xwindow]
 type = internal/xwindow
@@ -113,7 +111,7 @@ label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
 ; Separator in between workspaces
-; label-separator = |
+# label-separator = |
 
 [module/cpu]
 type = internal/cpu
@@ -133,7 +131,7 @@ label = %percentage_used%%
 
 [module/eth]
 type = internal/network
-interface = enp0s3
+interface = enp42s0
 interval = 3.0
 
 format-connected-underline = #55aa55

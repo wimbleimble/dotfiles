@@ -1,6 +1,6 @@
 {
  "restore.stream.Audio/Source.node.name:alsa_input.usb-Focusrite_Scarlett_18i8_USB_00007246-00.multichannel-input": { "volume": 1.000000, "mute": false, "volumes": [ 1.000000, 1.000000, 1.000000, 1.000000, 1.000000, 1.000000, 1.000000, 1.000000, 1.000000, 1.000000 ] },
- "restore.stream.Output/Audio.application.name:Firefox": { "volume": 1.000000, "mute": false, "volumes": [ 0.375843, 0.375843 ], "channels": [ "FL", "FR" ] },
+ "restore.stream.Output/Audio.application.name:Firefox": { "volume": 1.000000, "mute": false, "volumes": [ 0.000000, 0.000000 ], "channels": [ "FL", "FR" ] },
  "restore.stream.Output/Audio.application.name:Chromium": { "volume": 1.000000, "mute": false, "volumes": [ 1.000000, 1.000000 ], "channels": [ "FL", "FR" ] },
  "restore.stream.Output/Audio.media.role:Movie": { "volume": 1.000000, "mute": false, "volumes": [ 1.000000 ], "channels": [ "MONO" ] },
  "restore.stream.Input/Audio.application.name:WEBRTC VoiceEngine": { "volume": 1.000000, "mute": false, "volumes": [ 1.000000, 1.000000, 1.000000, 1.000000, 1.000000, 1.000000, 1.000000, 1.000000, 1.000000, 1.000000 ], "channels": [ "FL", "FR", "RL", "RR", "FC", "LFE", "SL", "SR", "AUX0", "AUX1" ] },

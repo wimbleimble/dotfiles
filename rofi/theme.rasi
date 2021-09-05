@@ -77,6 +77,12 @@ listview {
 	cycle:   true;
 }
 
+element-text, element-icon
+{
+    background-color: inherit;
+    text-color:       inherit;
+}
+
 element { padding: 10px; }
 
 element-icon
