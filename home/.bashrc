@@ -18,4 +18,5 @@ p_green="\[\e[32m\]"
 PS1="$p_blue[\h $p_white/ $p_pink\u]$p_green[\w]$p_white: "
 . "$HOME/.cargo/env"
 export PATH=$PATH:$(xdg-user-dir BIN)
-
+export PATH=$PATH:~/.local/bin
+source /usr/share/nvm/init-nvm.sh

@@ -47,19 +47,19 @@ border-color = #00000000
 padding-left = 0
 padding-right = 3
 
-module-margin-left = 1
-module-margin-right = 2
+module-margin = 2
 
 font-0 = FontAwesome5Free:style=Solid
 font-1 = FontAwesome5Brands:style=Solid
-font-2 = monospace;1
+# font-2 = monospace;1
+font-2 = Montserrat:size=11
 
 [bar/bar0]
 inherit = bar/base
 
 modules-left = i3
 modules-center = 
-modules-right = eth date
+modules-right = memory cpu eth date
 tray-position = center 
 tray-detached = true
 
@@ -111,7 +111,7 @@ label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
 ; Separator in between workspaces
-# label-separator = |
+label-separator = ~
 
 [module/cpu]
 type = internal/cpu
