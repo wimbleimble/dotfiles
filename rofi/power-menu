@@ -1,0 +1,17 @@
+#!/bin/env bash
+
+if [ "$@" = "Shutdown" ];
+then
+	shutdown now;
+	return 0
+elif [ "$@" = "Restart" ];
+then
+	reboot
+	return 0
+fi
+
+echo Shutdown
+echo Restart
+
+
+
