@@ -9,6 +9,7 @@ alias ls='ls --color=auto'
 alias ip='ip -c'
 alias fuck='sudo $(history -p !!)'
 alias gaytrix='cmatrix | lolcat'
+alias vi='nvim'
 
 p_blue="\[\e[36m\]"
 p_white="\[\e[0m\]"

@@ -10,8 +10,9 @@ then
 	return 0
 fi
 
-echo Shutdown
-echo Restart
-
-
+echo -en "\0prompt\x1f\n"
+echo -en "Shutdown\0"
+echo -en "icon\x1f~/.local/share/icons/Tela-circle/scalable/apps/system-shutdown.svg\n"
+echo -en "Restart\0"
+echo -en "icon\x1f~/.local/share/icons/Tela-circle/scalable/apps/system-reboot.svg\n"
 

@@ -3,22 +3,13 @@
  * Copyright: deadguy
  */
 
-configuration {
-	isplay-ssh:    "";
-    display-run:    "";
-    display-drun:   "";
-    display-window: "";
-    display-combi:  "";
-	show-icons:      true;
-	sidebar-mode:    true;
-}
 
 * {
-	background-color:            #161421;
-	text-color:                  #def3ff;
-	selbg:                       #a647ac;
-	actbg:                       #262339;
-	urgbg:                       #e23494;
+	background-color:            #1e1e2e;
+	text-color:                  #cdd6f4;
+	selbg:                       #cba6f7;
+	actbg:                       #313244;
+	urgbg:                       #000000;
 	winbg:			             #FFFFFF;
 
 	selected-normal-foreground:  @winbg;
