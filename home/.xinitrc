@@ -1,3 +1,4 @@
+#! /usr/bin/env bash
 setxkbmap gb
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources

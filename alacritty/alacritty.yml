@@ -6,7 +6,7 @@ window:
 colors:
   # Default colors
   primary:
-    background: '0x1E1D2F'
+    background: '0x1E1E2E'
     foreground: '0xD9E0EE'
 
   cursor:
