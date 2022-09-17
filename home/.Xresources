@@ -3,7 +3,7 @@
 
 ! Gray
 *color0: #6E6C7E
-*color8: #988BA2
+*color8: #6E6C7E
 
 ! Red
 *color1: #F28FAD
@@ -32,3 +32,5 @@
 ! Whites
 *color7: #C3BAC6
 *color15: #D9E0EE
+
+Xft.dpi: 102

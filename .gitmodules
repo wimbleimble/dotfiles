@@ -1,0 +1,3 @@
+[submodule "spicetify/spicetify"]
+	path = spicetify/Themes/catppuccin
+	url = git@github.com:catppuccin/spicetify.git

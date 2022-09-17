@@ -59,23 +59,23 @@ font-1 = FontAwesome6Free:style=Solid
 font-2 = FontAwesome6Brands:style=Solid
 # font-2 = monospace;1
 
-[bar/bar0]
-inherit = bar/base
-
-modules-left = i3
-modules-center = 
-modules-right = memory cpu eth date
-tray-position = center 
-tray-detached = true
-
-
 cursor-click = pointer
 
-[bar/bar1]
+[bar/bar0]
 inherit = bar/base
 modules-left = i3
 modules-center = 
 modules-right = cpu memory temperature
+
+[bar/bar1]
+inherit = bar/base
+
+modules-left = i3
+modules-center = 
+#modules-right = memory cpu eth date
+modules-right = eth date
+tray-position = center 
+tray-detached = true
 
 [module/xwindow]
 type = internal/xwindow
