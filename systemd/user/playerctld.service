@@ -1,0 +1,10 @@
+[Unit]
+Description=Control and monitor media player services.
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/playerctld daemon
+
+[Install]
+WantedBy=default.target
+

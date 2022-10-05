@@ -45,6 +45,7 @@ nmap("<leader>ff", ":Telescope find_files<cr>")
 nmap("<leader>fs", ":Telescope live_grep<cr>")
 nmap("<leader>fb", ":Telescope buffers<cr>")
 nmap("<leader>fh", ":Telescope help_tags<cr>")
+nmap("<leader>ft", ":TodoTelescope<cr>")
 -- Telescope Git Things
 nmap("<leader>fgb", ":Telescope git_branches<cr>")
 nmap("<leader>fgc", ":Telescope git_commits<cr>")

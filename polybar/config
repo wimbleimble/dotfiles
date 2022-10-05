@@ -63,9 +63,10 @@ cursor-click = pointer
 
 [bar/bar0]
 inherit = bar/base
+enable-ipc = true
 modules-left = i3
 modules-center = 
-modules-right = cpu memory temperature
+modules-right = cpu memory battery pipewire
 
 [bar/bar1]
 inherit = bar/base
@@ -76,6 +77,22 @@ modules-center =
 modules-right = eth date
 tray-position = center 
 tray-detached = true
+
+[module/pipewire]
+type = custom/ipc
+
+format-foreground = ${colors.blue}
+
+hook-0 = ~/src/polybar-scripts/polybar-scripts/pipewire-simple/pipewire-simple.sh
+hook-1 = ~/src/polybar-scripts/polybar-scripts/pipewire-simple/pipewire-simple.sh mute
+hook-2 = ~/src/polybar-scripts/polybar-scripts/pipewire-simple/pipewire-simple.sh up
+hook-3 = ~/src/polybar-scripts/polybar-scripts/pipewire-simple/pipewire-simple.sh down
+hook-4 = sleep 0.2 && ~/src/polybar-scripts/polybar-scripts/pipewire-simple/pipewire-simple.sh down
+initial = 5
+
+click-left = exec polybar-msg action "#pipewire.hook.1"
+scroll-up = exec polybar-msg action "#pipewire.hook.2"
+scroll-down = exec polybar-msg action "#pipewire.hook.3"
 
 [module/xwindow]
 type = internal/xwindow
@@ -136,7 +153,7 @@ label-foreground = ${colors.yellow}
 
 [module/eth]
 type = internal/network
-interface = enp42s0
+interface = wlo1
 interval = 3.0
 
 format-connected-prefix = " "
@@ -195,6 +212,94 @@ bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/battery]
+type = internal/battery
+
+; This is useful in case the battery never reports 100% charge
+full-at = 99
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = ADP1
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval = 5
+
+
+; see "man date" for details on how to format the time string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+; Default: %H:%M:%S
+time-format = %H:%M
+
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-charging>
+format-charging = <animation-charging> <label-charging>
+
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+; Available tags:
+;   <label-full> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;format-full = <ramp-capacity> <label-full>
+
+; Available tokens:
+;   %percentage% (default)
+;   %time%
+;   %consumption% (shows current charge rate in watts)
+label-charging = Charging %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging = Discharging %percentage%%
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; Only applies if <animation-discharging> is used
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+; Framerate in milliseconds
+animation-discharging-framerate = 500
 
 [module/temperature]
 type = internal/temperature

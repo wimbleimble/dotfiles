@@ -15,7 +15,3 @@ configs.setup {
     indent = { enable = true, disable = { "yaml" } },
 }
 
--- Filetype mappings
--- TODO: fix this when it's not 2am
--- GLSLSLSLSLLSLGSLGLSGLGLSGLG WHYY
--- I just want .frag and .vert syntax highlighting. is that too much to ask?

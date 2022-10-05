@@ -1,4 +1,5 @@
 #! /bin/bash
+killall polybar
 
 if type "xrandr"; then
 	i=0
