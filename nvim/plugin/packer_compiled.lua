@@ -167,7 +167,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["todo-comments.nvim"] = {
-    config = { "\27LJ\2\nX\0\0\5\0\4\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0A\0\0\1K\0\1\0\21user.todo-config\nsetup\18todo-comments\frequire\0" },
+    config = { "\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14jump_next\18todo-comments\frequire?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14jump_prev\18todo-comments\frequireé\1\1\0\6\0\14\0\0256\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0A\0\0\0016\0\4\0009\0\5\0009\0\6\0'\2\a\0'\3\b\0003\4\t\0005\5\n\0B\0\5\0016\0\4\0009\0\5\0009\0\6\0'\2\a\0'\3\v\0003\4\f\0005\5\r\0B\0\5\1K\0\1\0\1\0\1\tdesc\26Previous todo comment\0\a[t\1\0\1\tdesc\22Next todo comment\0\a]t\6n\bset\vkeymap\bvim\21user.todo-config\nsetup\18todo-comments\frequire\0" },
     loaded = true,
     path = "/home/kate/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
     url = "https://github.com/folke/todo-comments.nvim"
@@ -181,6 +181,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\nW\0\0\5\0\4\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0A\0\0\1K\0\1\0\25user.gitsigns-config\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
 -- Config for: zk-nvim
 time([[Config for zk-nvim]], true)
 try_loadstring("\27LJ\2\nK\0\0\5\0\4\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0A\0\0\1K\0\1\0\19user.zk-config\nsetup\azk\frequire\0", "config", "zk-nvim")
@@ -191,12 +195,8 @@ try_loadstring("\27LJ\2\n’\1\0\0\3\0\t\0\0146\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\
 time([[Config for catppuccin]], false)
 -- Config for: todo-comments.nvim
 time([[Config for todo-comments.nvim]], true)
-try_loadstring("\27LJ\2\nX\0\0\5\0\4\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0A\0\0\1K\0\1\0\21user.todo-config\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14jump_next\18todo-comments\frequire?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14jump_prev\18todo-comments\frequireé\1\1\0\6\0\14\0\0256\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0A\0\0\0016\0\4\0009\0\5\0009\0\6\0'\2\a\0'\3\b\0003\4\t\0005\5\n\0B\0\5\0016\0\4\0009\0\5\0009\0\6\0'\2\a\0'\3\v\0003\4\f\0005\5\r\0B\0\5\1K\0\1\0\1\0\1\tdesc\26Previous todo comment\0\a[t\1\0\1\tdesc\22Next todo comment\0\a]t\6n\bset\vkeymap\bvim\21user.todo-config\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
 time([[Config for todo-comments.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\nW\0\0\5\0\4\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0A\0\0\1K\0\1\0\25user.gitsigns-config\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

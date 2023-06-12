@@ -1,5 +1,6 @@
 return {
     settings = {
+        useLibraryCodeForTypes = false
     }
 }
 

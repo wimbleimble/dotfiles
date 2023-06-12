@@ -20,7 +20,7 @@ export PATH=$PATH:$(xdg-user-dir BIN)
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.cargo/bin
 
-export SK_NOTEBOOK_DIR="$HOME/documents/notes"
+export ZK_NOTEBOOK_DIR="$HOME/documents/notes"
 export FZF_DEFAULT_OPTS=" \
     --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
     --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
@@ -28,3 +28,7 @@ export FZF_DEFAULT_OPTS=" \
 source /usr/share/nvm/init-nvm.sh
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
+export ESPIDF=/opt/esp-idf/
+
+export QSYS_ROOTDIR="/home/kate/.cache/paru/clone/quartus-free/pkg/quartus-free-quartus/opt/intelFPGA/21.1/quartus/sopc_builder/bin"

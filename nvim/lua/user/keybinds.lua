@@ -51,3 +51,5 @@ nmap("<leader>fgb", ":Telescope git_branches<cr>")
 nmap("<leader>fgc", ":Telescope git_commits<cr>")
 nmap("<leader>fgs", ":Telescope git_status<cr>")
 
+-- ZK
+nmap("<leader>zf", ":ZkNotes<cr>")

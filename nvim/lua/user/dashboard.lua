@@ -32,5 +32,10 @@ db.custom_center = {
         action = "TodoTelescope",
         shortcut = "leader f t"
     },
+    {
+        desc = "Find Notes        ",
+        action = "ZkNotes",
+        shortcut = "leader z f"
+    }
 }
 
