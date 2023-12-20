@@ -28,7 +28,7 @@ require("packer").startup(function(use)
         config = config_catppuccin }
 
     -- Telescope
-    use { "nvim-telescope/telescope.nvim", tag = "0.1.0",
+    use { "nvim-telescope/telescope.nvim", branch = "0.1.x",
         requires = { { "nvim-lua/plenary.nvim" } } }
 
     -- Autocompletion
@@ -63,28 +63,62 @@ require("packer").startup(function(use)
 
     -- Notes
     use {
-        "mickael-menu/zk-nvim",
+        "nvim-neorg/neorg",
         config = function()
-            require("zk").setup(require("user.zk-config"))
-        end
+            require('neorg').setup {
+                load = {
+                    ["core.defaults"] = {}, -- Loads default behaviour
+                    ["core.concealer"] = {}, -- Adds pretty icons to your documents
+                    ["core.dirman"] = { -- Manages Neorg workspaces
+                        config = {
+                            workspaces = {
+                                notes = "~/notes",
+                                dnd = "~/documents/dnd"
+                            },
+                            default_workspace = "notes",
+                        },
+                    },
+                    ["core.summary"] = {},
+                    ["core.export"] = {},
+                    ["core.export.markdown"] = {
+                        config = {
+                            extensions = "all",
+                        }
+                    },
+                    -- ["core.ui.calendar"] = {},
+                },
+            }
+        end,
+        run = ":Neorg sync-parsers",
+        requires = "nvim-lua/plenary.nvim",
     }
+    -- use {
+    --     "mickael-menu/zk-nvim",
+    --     config = function()
+    --         require("zk").setup(require("user.zk-config"))
+    --     end
+    -- }
 
     -- Other
-    use {
-        "folke/todo-comments.nvim",
-        requires = "nvim-lua/plenary.nvim",
-        config = function()
-            require("todo-comments").setup(require("user.todo-config"))
-            vim.keymap.set("n", "]t", function()
-                require("todo-comments").jump_next()
-            end, { desc = "Next todo comment" })
+    -- use {
+    --     "folke/todo-comments.nvim",
+    --     requires = "nvim-lua/plenary.nvim",
+    --     config = function()
+    --         require("todo-comments").setup(require("user.todo-config"))
+    --         vim.keymap.set("n", "]t", function()
+    --             require("todo-comments").jump_next()
+    --         end, { desc = "Next todo comment" })
 
-            vim.keymap.set("n", "[t", function()
-                require("todo-comments").jump_prev()
-            end, { desc = "Previous todo comment" })
-        end
+    --         vim.keymap.set("n", "[t", function()
+    --             require("todo-comments").jump_prev()
+    --         end, { desc = "Previous todo comment" })
+    --     end
+    -- }
+    -- use { 'glepnir/dashboard-nvim' }
+    use {
+        "stevearc/oil.nvim",
+        config = function () require("oil").setup() end
     }
-    use { 'glepnir/dashboard-nvim' }
 
     if packer_bootstrap then
         require('packer').sync()

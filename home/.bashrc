@@ -9,13 +9,14 @@ alias ls='ls --color=auto'
 alias ip='ip -c'
 alias fuck='sudo $(history -p !!)'
 alias gaytrix='cmatrix | lolcat'
+alias notes='nvim -c "Neorg index"'
 
 p_blue="\[\e[36m\]"
 p_white="\[\e[0m\]"
 p_pink="\[\e[35m\]"
 p_green="\[\e[32m\]"
 
-PS1="$p_blue[\h $p_white/ ${p_pink}will]$p_green[\w]$p_white: "
+PS1="$p_blue[\h $p_white/ ${p_pink}\u]$p_green[\w]$p_white: "
 export PATH=$PATH:$(xdg-user-dir BIN)
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.cargo/bin
@@ -32,3 +33,4 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export ESPIDF=/opt/esp-idf/
 
 export QSYS_ROOTDIR="/home/kate/.cache/paru/clone/quartus-free/pkg/quartus-free-quartus/opt/intelFPGA/21.1/quartus/sopc_builder/bin"
+export IANTHE="88.80.190.88"
