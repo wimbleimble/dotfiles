@@ -34,3 +34,5 @@
 *color15: #A6ADC8
 
 Xft.dpi: 102
+
+Xcursor.theme: Catppuccin-Mocha-Dark-Cursors
