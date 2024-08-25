@@ -9,7 +9,7 @@ alias ls='ls --color=auto'
 alias ip='ip -c'
 alias fuck='sudo $(history -p !!)'
 alias gaytrix='cmatrix | lolcat'
-alias notes='cd ~/notes && nvim -c "Neorg index"'
+alias notes='(cd ~/notes && nvim -c "Neorg index")'
 alias refresh_wifi='nmcli dev wifi list --rescan yes'
 alias sc-im='~/downloads/sc-im/src/sc-im'
 

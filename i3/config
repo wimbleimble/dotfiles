@@ -54,14 +54,17 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id polybar-msg action "#pipewire.
 bindsym XF86AudioLowerVolume exec --no-startup-id polybar-msg action "#pipewire.hook.3"
 bindsym XF86AudioMute exec --no-startup-id polybar-msg action "#pipewire.hook.1"
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+# bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 bindsym $mod+i exec --no-startup-id firefox
-bindsym $mod+z exec --no-startup-id code ~/documents/notes
+bindsym $mod+z exec --no-startup-id alacritty --working-directory ~/notes -T notes -e nvim -c "Neorg index"
 
 # kill focused window
 bindsym $mod+Shift+q kill
