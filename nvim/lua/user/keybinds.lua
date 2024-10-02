@@ -10,7 +10,7 @@ end
 
 map("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = "\\"
 
 nmap("gf", ":edit <cfile><cr>")
 nmap("<leader>x", ":!xdg-open %<cr><cr>")

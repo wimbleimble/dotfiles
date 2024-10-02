@@ -6,7 +6,7 @@ nvidia-settings --load-config-only
 
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export GTK_THEME=catppuccin-mocha-mauve-standard+default
-export QT_QPA_PLATFORMTHEME=gtk2
+export QT_QPA_PLATFORMTHEME=qt5gtk2
 export LM_LICENSE_FILE=/home/kate/downloads/LR-099948_License.dat
 
 eval $(/usr/bin/gnome-keyring-daemon --start)
