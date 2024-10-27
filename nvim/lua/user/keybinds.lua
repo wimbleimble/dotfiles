@@ -15,6 +15,7 @@ vim.g.maplocalleader = "\\"
 nmap("gf", ":edit <cfile><cr>")
 nmap("<leader>x", ":!xdg-open %<cr><cr>")
 nmap("<leader>p", "p :let @\"=@0")
+nmap("<leader>h", ":nohl<cr>")
 
 -- Tabs
 nmap("H", "gT")
