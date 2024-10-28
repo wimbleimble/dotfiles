@@ -1,50 +1,117 @@
+@import "mocha"
+
 * {
   all: unset; // Unsets everything so you can style everything from scratch
 }
 
 // Global Styles
 .bar {
-  background-color: #3a3a3a;
-  color: #b0b4bc;
-  padding: 10px;
+  background-color: $base;
+  color: $text;
+  padding: 5px;
+  font-family: "FantasqueSansM Nerd Font Mono";
 }
 
 // Styles on classes (see eww.yuck for more information)
+/* -- General --------------------------------------------------------------- */
+.bubble {
+  background-color: $mantle;
+  padding: 0.4em;
+  border-radius: 17em;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  min-width: 4em;
+}
 
 .sidestuff slider {
   all: unset;
-  color: #ffd5cd;
+  color: $pink;
 }
 
 .metric scale trough highlight {
   all: unset;
-  background-color: #D35D6E;
-  color: #000000;
-  border-radius: 10px;
+  background-color: $mauve;
 }
 
+/* -------------------------------------------------------------------------- */
 .metric scale trough {
   all: unset;
-  background-color: #4e4e4e;
+  background-color: $surface1;
   border-radius: 50px;
   min-height: 3px;
   min-width: 50px;
   margin-left: 10px;
-  margin-right: 20px;
+  margin-right: 10px;
+  border-radius: 10px;
 }
 
-.label-ram {
-  font-size: large;
+.metric {
+  padding-left: 1em;
+  color: $pink;
 }
 
 
+.icon {
+  font-size: 1.7em;
+}
+
+
+/* -- Status Indicators ------------------------------------------------------ */
+.status {
+  background-color: $mantle;
+  padding: 0.4em;
+  border-radius: 17em;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  min-width: 4em;
+}
+
+.memory {
+  color: $red;
+}
+
+.cpu {
+  color: $blue;
+}
+
+.clock {
+  margin-right: 0.7em;
+  color: $green;
+}
+
+.music {
+  color: $lavender;
+}
+
+.systray {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* -- Workspaces ------------------------------------------------------------ */
 .workspace-entry {
-  margin-left: 4px;
-  padding: 0;
-}
-.workspace-entry.occupied {
+  font-family: "FantasqueSansM Nerd Font Mono";
+  font-size: 1.6em;
+  color: $text;
+  background-color: $surface0;
+  border-radius: 1.6em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 
 }
+.current {
+  color: $surface0;
+  background-color: $mauve;
+}
 
-.workspace-entry.empty {
+.urgent {
+
+  color: $sapphire;
+}
+
+
+.workspaces {
+  background-color: $mantle;
+  border-radius: 17em;
+  padding: 0.4em;
 }

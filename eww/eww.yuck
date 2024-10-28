@@ -6,20 +6,20 @@
 
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
-    (metric :label "🔊"
+    (metric :label ""
             :value volume
             :onchange "amixer -D pulse sset Master {}%")
-    (metric :label ""
-            :value {EWW_RAM.used_mem_perc}
-            :onchange "")
-    (metric :label "💾"
-            :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
-            :onchange "")
-    time))
+    (box :halign "end" :class "status memory" (label :class "icon" :text "") (label :text "${round(EWW_RAM.used_mem_perc, 0)}%"))
+    (box :halign "end" :class "status cpu" (label :class "icon" :text "󰍛") (label :text "${round(EWW_CPU.avg, 0)}%"))
+    (systray :orientation "h"
+             :icon-size 15
+             :class "bubble systray"
+             :spacing 12)
+    (label :class "bubble clock" :text time)))
 
 
 (deflisten workspaces :initial
-    "[]" "~/.config/eww/scripts/get-workspaces")
+    "[]" "~/.config/eww/scripts/hypr-eww.py --watch get")
 (deflisten current_workspace :initial
     "..." "~/.config/eww/scripts/get-active-workspace")
 (deflisten urgent_workspace :initial
@@ -34,20 +34,14 @@
 (eventbox
     :onscroll "${caw} {} ${current_workspace}"
     :class "workspaces-widget"
-    (box :space-evenly false
-
-    (label
-        :text "${workspaces}${current_workspace}${urgent_workspace}"
-        :visible false)
+    :halign "start"
+    (box :space-evenly true :class "workspaces" :halign "start"
         (for workspace in workspaces
-            (literal :content
-                {workspace.data.windows > 0 || workspace.id == current_workspace ?
-                    "(eventbox :onclick '${goto_w} ${workspace.id}'
-                        (box :class 'workspace-entry 
-                        ${workspace.id == current_workspace ? 'current' : ''}
-                        ${workspace.id == urgent_workspace ? 'urgent' : ''}'
-                        (label :text '${workspace.data.name}')
-                        ))" : ""})))))
+            (eventbox :onclick '${goto_w} ${workspace.id}'
+                (box :class '${workspace.id == current_workspace ? 'current' : ''}${workspace.id == urgent_workspace ? 'urgent' : ''} workspace-entry'
+                    :width 50
+                    (label :text '${workspace.name}')
+                ))))))
 
 
 (defwidget music []
@@ -55,14 +49,14 @@
        :orientation "h"
        :space-evenly false
        :halign "center"
-    {music != "" ? "🎵${music}" : ""}))
+    {music != "" ? " ~ ${music} ~ " : ""}))
 
 
 (defwidget metric [label value onchange]
   (box :orientation "h"
-       :class "metric"
+       :class "bubble metric"
        :space-evenly false
-    (box :class "label" label)
+    (box :class "icon" label)
     (scale :min 0
            :max 101
            :active {onchange != ""}
