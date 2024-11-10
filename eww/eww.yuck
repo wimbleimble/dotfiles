@@ -28,10 +28,8 @@
 (defvar caw "~/.config/eww/scripts/change-active-workspace")
 (defvar goto_w "hyprctl dispatch workspace")
 
-(defpoll volume :interval "1s"
-    "wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -d' ' -f2-")
-
-
+(deflisten volume :initial 0
+    "~/.config/eww/scripts/pw-eww.py --watch get-volume")
 
 (defwidget _workspaces []
 (eventbox
