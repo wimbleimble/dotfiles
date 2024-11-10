@@ -7,8 +7,8 @@
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
     (metric :label ""
-            :value volume
-            :onchange "amixer -D pulse sset Master {}%")
+            :value {volume * 100}
+            :onchange "wpctl set-volume @DEFAULT_AUDIO_SINK@ {}%")
     (box :halign "end" :class "status memory" (label :class "icon" :text "") (label :text "${round(EWW_RAM.used_mem_perc, 0)}%"))
     (box :halign "end" :class "status cpu" (label :class "icon" :text "󰍛") (label :text "${round(EWW_CPU.avg, 0)}%"))
     (systray :orientation "h"
@@ -27,6 +27,9 @@
 
 (defvar caw "~/.config/eww/scripts/change-active-workspace")
 (defvar goto_w "hyprctl dispatch workspace")
+
+(defpoll volume :interval "1s"
+    "wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -d' ' -f2-")
 
 
 
@@ -68,15 +71,12 @@
 (deflisten music :initial ""
   "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
 
-(defpoll volume :interval "1s"
-  "scripts/getvol")
-
 (defpoll time :interval "10s"
   "date '+%H:%M %b %d, %Y'")
 
 (defwindow bar
     :monitor 0
-    :stacking "fg"
+    :stacking "bg"
     :geometry (geometry :x "0%"
                       :y "0%"
                       :width "100%"
