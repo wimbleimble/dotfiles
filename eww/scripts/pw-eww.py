@@ -2,6 +2,7 @@
 import subprocess
 import argparse
 import sys
+import time
 
 def get_and_print_volume():
     wpctl_call = subprocess.run(["wpctl", "get-volume", "@DEFAULT_AUDIO_SINK@"],
