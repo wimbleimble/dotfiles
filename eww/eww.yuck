@@ -29,7 +29,7 @@
 (defvar goto_w "hyprctl dispatch workspace")
 
 (deflisten volume :initial 0
-    "~/.config/eww/scripts/pw-eww.py --watch get-volume")
+    "sleep 15 && ~/.config/eww/scripts/pw-eww.py --watch get-volume")
 
 (defwidget _workspaces []
 (eventbox

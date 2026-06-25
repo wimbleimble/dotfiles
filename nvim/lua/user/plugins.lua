@@ -47,8 +47,14 @@ local plugins = {
 
     -- LSP
     "neovim/nvim-lspconfig",
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
+    {
+        "williamboman/mason.nvim",
+        version = "^1.0.0"
+    },
+    {
+        "williamboman/mason-lspconfig.nvim",
+        version = "^v1.0.0"
+    },
 
     -- Treesitter
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
