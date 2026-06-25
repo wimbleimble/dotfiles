@@ -36,4 +36,4 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export ESPIDF=/opt/esp-idf/
 
 export QSYS_ROOTDIR="$HOME/.cache/paru/clone/quartus-free/pkg/quartus-free-quartus/opt/intelFPGA/21.1/quartus/sopc_builder/bin"
-export IANTHE="88.80.190.88"
+export IANTHE="ssh://88.80.190.88:975"
