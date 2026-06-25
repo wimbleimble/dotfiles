@@ -63,7 +63,7 @@ local plugins = {
 
     {
         "nvim-neorg/neorg",
-        version = "*",
+        version = "v9.4.0",
         config = function()
             require('neorg').setup {
                 load = {
@@ -85,11 +85,56 @@ local plugins = {
                             extensions = "all",
                         }
                     },
-                    ["core.latex.renderer"] = {}
+                    ["core.latex.renderer"] = {},
+                    ["external.templates"] = {
+                            -- templates_dir = vim.fn.stdpath("config") .. "/templates/norg",
+                            -- default_subcommand = "add", -- or "fload", "load"
+                            -- keywords = { -- Add your own keywords.
+                            --   EXAMPLE_KEYWORD = function ()
+                            --     return require("luasnip").insert_node(1, "default text blah blah")
+                            --   end,
+                            -- },
+                            -- snippets_overwrite = {},
+                          }
                 },
             }
+
         end,
+        dependencies = {
+            { "pysan3/neorg-templates", dependencies = { "L3MON4D3/LuaSnip" } },
+          },
         lazy = false
+    },
+
+    {
+      'nvim-orgmode/orgmode',
+      event = 'VeryLazy',
+      config = function()
+        require('orgmode').setup({
+          org_agenda_files = '~/notes/**/*',
+          org_default_notes_file = '~/notes/refile.org',
+        })
+       -- Experimental LSP support
+       vim.lsp.enable('org')
+      end,
+    },
+    {
+      "seflue/org-link.nvim",
+      event = "VeryLazy",
+      opts = {},
+    },
+        
+
+    {
+        "benlubas/molten-nvim",
+        version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
+        dependencies = { "3rd/image.nvim" },
+        build = ":UpdateRemotePlugins",
+        init = function()
+            -- these are examples, not defaults. Please see the readme
+            vim.g.molten_image_provider = "image.nvim"
+            vim.g.molten_output_win_max_height = 20
+        end,
     },
 
     {
@@ -106,10 +151,10 @@ local plugins = {
                         filetypes = { "norg" },
                     },
                 },
-                max_width = nil,
-                max_height = nil,
-                max_width_window_percentage = nil,
-                max_height_window_percentage = 50,
+                max_width = 100,
+                max_height = 12,
+                max_width_window_percentage = math.huge,
+                max_height_window_percentage = math.huge,
                 window_overlap_clear_enabled = false,
                 window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
                 hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif" },
@@ -121,6 +166,17 @@ local plugins = {
     {
         "stevearc/oil.nvim",
         config = true,
+    },
+    {
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("nvim-tree").setup {}
+        end,
     }
 
 }

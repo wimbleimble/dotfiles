@@ -42,7 +42,7 @@ nmap("<A-l>", ":bnext<cr>");
 nmap("<A-h>", ":bprev<cr>");
 
 -- Telescope Keybinds
-nmap("<leader>ff", ":Telescope find_files<cr>")
+nmap("<leader>ff", ":Telescope git_files<cr>")
 nmap("<leader>fs", ":Telescope live_grep<cr>")
 nmap("<leader>fb", ":Telescope buffers<cr>")
 nmap("<leader>fh", ":Telescope help_tags<cr>")
@@ -52,4 +52,5 @@ nmap("<leader>fgb", ":Telescope git_branches<cr>")
 nmap("<leader>fgc", ":Telescope git_commits<cr>")
 nmap("<leader>fgs", ":Telescope git_status<cr>")
 
--- Neorg
+-- File Manager
+nmap("<leader>d", ":NvimTreeOpen<cr>")

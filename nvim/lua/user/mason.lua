@@ -29,24 +29,24 @@ mason.setup({
 
 mason_lspconfig.setup();
 
-mason_lspconfig.setup_handlers {
-    function (server_name)
-        local server_config_ok, server_config =
-            pcall(require, "user.lsp.config." .. server_name)
-
-        local default_opts = {
-            on_attach = require("user.lsp.core_config").on_attach,
-            capabilities = require("user.lsp.core_config").capabilities
-        }
-
-        local opts = nil
-        if not server_config_ok then
-            opts = default_opts
-        else
-            opts = vim.tbl_deep_extend("force", default_opts, server_config)
-        end
-
-        lspconfig[server_name].setup(opts)
-    end,
-}
+--mason_lspconfig.setup_handlers {
+--    function (server_name)
+--        local server_config_ok, server_config =
+--            pcall(require, "user.lsp.config." .. server_name)
+--
+--        local default_opts = {
+--            on_attach = require("user.lsp.core_config").on_attach,
+--            capabilities = require("user.lsp.core_config").capabilities
+--        }
+--
+--        local opts = nil
+--        if not server_config_ok then
+--            opts = default_opts
+--        else
+--            opts = vim.tbl_deep_extend("force", default_opts, server_config)
+--        end
+--
+--        lspconfig[server_name].setup(opts)
+--    end,
+--}
 
