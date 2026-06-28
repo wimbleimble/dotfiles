@@ -17,7 +17,8 @@ local options = {
     splitright = true,
     signcolumn = "yes",
     syntax = "OFF",
-    conceallevel = 2 -- required for links to work properly in neorg
+    conceallevel = 2, -- required for links to work properly in neorg
+    foldenable = false
 }
 
 for k, v in pairs(options) do

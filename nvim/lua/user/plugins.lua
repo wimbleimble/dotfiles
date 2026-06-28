@@ -28,9 +28,27 @@ local plugins = {
 
     -- Telescope
     {
+        "nvim-telescope/telescope-bibtex.nvim",
+        dependencies = {"nvim-telescope/telescope.nvim"},
+    },
+    {
         "nvim-telescope/telescope.nvim",
         version = "*",
-        dependencies = { "nvim-lua/plenary.nvim" }
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            ts = require("telescope")
+            ts.setup({
+                bibtex = {
+                    global_files = {
+                        "~/documents/bibliography.bib"
+                    },
+                    context = true,
+                    context_fallback = true
+                }
+            })
+            ts.load_extension("bibtex")
+
+        end
     },
 
     -- Autocompletion
@@ -47,14 +65,8 @@ local plugins = {
 
     -- LSP
     "neovim/nvim-lspconfig",
-    {
-        "williamboman/mason.nvim",
-        version = "^1.0.0"
-    },
-    {
-        "williamboman/mason-lspconfig.nvim",
-        version = "^v1.0.0"
-    },
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
 
     -- Treesitter
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
@@ -92,44 +104,91 @@ local plugins = {
                         }
                     },
                     ["core.latex.renderer"] = {},
-                    ["external.templates"] = {
-                            -- templates_dir = vim.fn.stdpath("config") .. "/templates/norg",
-                            -- default_subcommand = "add", -- or "fload", "load"
-                            -- keywords = { -- Add your own keywords.
-                            --   EXAMPLE_KEYWORD = function ()
-                            --     return require("luasnip").insert_node(1, "default text blah blah")
-                            --   end,
-                            -- },
-                            -- snippets_overwrite = {},
-                          }
                 },
             }
-
         end,
-        dependencies = {
-            { "pysan3/neorg-templates", dependencies = { "L3MON4D3/LuaSnip" } },
-          },
         lazy = false
     },
+    {
+        "HakonHarnes/img-clip.nvim",
+        event = "VeryLazy",
+        opts = {},
+        keys = {
+            { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" }
+        },
+
+    },
 
     {
-      'nvim-orgmode/orgmode',
-      event = 'VeryLazy',
-      config = function()
-        require('orgmode').setup({
-          org_agenda_files = '~/notes/**/*',
-          org_default_notes_file = '~/notes/refile.org',
-        })
-       -- Experimental LSP support
-       vim.lsp.enable('org')
-      end,
+        'nvim-orgmode/orgmode',
+        event = 'VeryLazy',
+        config = function()
+            require('orgmode').setup({
+                org_agenda_files = '~/org/**/*',
+                org_default_notes_file = '~/org/refile.org',
+                org_todo_keywords = {"TODO(t)", "ACTIVE(a)", "|", "DONE(d)", "CANCELLED(c)"},
+                mappings = {
+                    org = {
+                        org_open_at_point = "<Enter>"
+                    }
+                }
+            })
+            -- Experimental LSP support
+            vim.lsp.enable('org')
+            vim.api.nvim_create_autocmd('FileType', {
+              pattern = 'org',
+              callback = function()
+                vim.keymap.set('i', '<S-CR>', '<cmd>lua require("orgmode").action("org_mappings.meta_return")<CR>', {
+                  silent = true,
+                  buffer = true,
+                })
+              end,
+            })
+        end,
     },
     {
-      "seflue/org-link.nvim",
-      event = "VeryLazy",
-      opts = {},
+        "chipsenkbeil/org-roam.nvim",
+        dependencies = { "nvim-orgmode/orgmode" },
+        config = function()
+            require("org-roam").setup({
+                directory = "~/org"
+            })
+        end
+
     },
-        
+    {
+        "nvim-orgmode/org-bullets.nvim",
+        dependencies = { "nvim-orgmode/orgmode" },
+        opts = {
+            symbols = {
+                headlines = {"◉", "○", "", ""},
+                checkboxes = {
+                    half = { "", "@org.checkbox.halfchecked" },
+                    done = { "", "@org.keyword.done" },
+                    todo = { " ", "@org.keyword.todo" },
+                },
+            }
+        }
+    },
+    {
+        "lukas-reineke/headlines.nvim",
+        dependencies = {"nvim-treesitter/nvim-treesitter", "nvim-orgmode/orgmode"},
+        config = {
+            org = {
+                bullets = {"◉", "○", "", ""}, -- overrides bullets
+                --fat_headlines = false
+            }
+        }
+    },
+
+    {
+        "folke/snacks.nvim",
+        priority = 1000,
+        lazy = false,
+        opts = {
+            image = {}
+        }
+    },
 
     {
         "benlubas/molten-nvim",

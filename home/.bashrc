@@ -14,6 +14,7 @@ alias refresh_wifi='nmcli dev wifi list --rescan yes'
 alias sc-im='~/downloads/sc-im/src/sc-im'
 alias data-venv='. ~/data/.data-venv/bin/activate'
 alias listen-usb='usbipd.exe attach -ab 2-6 --wsl'
+alias org='(cd ~/org && nvim ~/org/20260626091831-home.org)'
 
 p_blue="\[\e[36m\]"
 p_white="\[\e[0m\]"

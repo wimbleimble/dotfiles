@@ -27,7 +27,7 @@ mason.setup({
 });
 
 
-mason_lspconfig.setup();
+mason_lspconfig.setup()
 
 --mason_lspconfig.setup_handlers {
 --    function (server_name)

@@ -13,6 +13,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 nmap("gf", ":edit <cfile><cr>")
+nmap("gp", ":vsplit <cfile><cr>")
 nmap("<leader>x", ":!xdg-open %<cr><cr>")
 nmap("<leader>p", "p :let @\"=@0")
 nmap("<leader>h", ":nohl<cr>")
@@ -44,7 +45,7 @@ nmap("<A-h>", ":bprev<cr>");
 -- Telescope Keybinds
 nmap("<leader>ff", ":Telescope git_files<cr>")
 nmap("<leader>fs", ":Telescope live_grep<cr>")
-nmap("<leader>fb", ":Telescope buffers<cr>")
+nmap("<leader>fb", ":Telescope bibtex<cr>")
 nmap("<leader>fh", ":Telescope help_tags<cr>")
 nmap("<leader>ft", ":TodoTelescope<cr>")
 -- Telescope Git Things
